@@ -46,8 +46,12 @@ function renderResult() {
   const lang = currentLang || 'es';
   const nameKey = lang === 'en' ? 'name_en' : 'name_es';
 
-  const rows = (lastAIResponse.codes || [])
-    .map(code => ({ code, svc: findService(servicesCache, code) }))
+  // Soporta nuevo formato { services: [{code, reason}] } y legado { codes: [] }
+  const rawServices = lastAIResponse.services
+    || (lastAIResponse.codes || []).map(code => ({ code, reason: '' }));
+
+  const rows = rawServices
+    .map(({ code, reason }) => ({ code, reason: reason || '', svc: findService(servicesCache, code) }))
     .filter(r => r.svc);
 
   const totalMin = rows.reduce((s, r) => s + r.svc.price_min, 0);
@@ -69,11 +73,14 @@ function renderResult() {
           </tr>
         </thead>
         <tbody>
-          ${rows.map(({ code, svc }) => {
+          ${rows.map(({ code, reason, svc }) => {
             const suffix = svc.monthly ? '/mes' : svc.per_hour ? '/h' : '';
             return `
               <tr>
-                <td>${svc[nameKey] || svc.name_es}</td>
+                <td>
+                  <span class="svc-name">${svc[nameKey] || svc.name_es}</span>
+                  ${reason ? `<span class="svc-reason">${reason}</span>` : ''}
+                </td>
                 <td><code class="svc-code">${code}</code></td>
                 <td class="price-cell">${cop(svc.price_min)} – ${cop(svc.price_max)}${suffix}</td>
               </tr>`;

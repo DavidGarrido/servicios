@@ -647,6 +647,20 @@ nav {
   border-bottom: none;
 }
 
+.svc-name {
+  display: block;
+  color: var(--text-secondary);
+}
+
+.svc-reason {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 3px;
+  font-style: italic;
+  line-height: 1.4;
+}
+
 .svc-code {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.8rem;

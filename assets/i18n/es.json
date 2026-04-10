@@ -1,0 +1,118 @@
+{
+  "nav": {
+    "services": "Servicios",
+    "packages": "Paquetes",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "badge": "Agencia de Desarrollo",
+    "title": "Construimos software que",
+    "titleHighlight": "transforma negocios",
+    "subtitle": "Desarrollamos plataformas web, bots inteligentes e integraciones con IA a medida de tu negocio. Desde una landing page hasta una solución empresarial completa.",
+    "cta": "Ver servicios",
+    "ctaSecondary": "Contactar"
+  },
+  "services": {
+    "title": "¿Qué construimos?",
+    "subtitle": "Soluciones tecnológicas adaptadas a cada etapa de tu negocio",
+    "items": [
+      {
+        "icon": "🌐",
+        "title": "Sitios web y landing pages",
+        "description": "Interfaces modernas, rápidas y optimizadas. Ideales para presentar tu negocio o captar clientes desde el primer día."
+      },
+      {
+        "icon": "⚙️",
+        "title": "Plataformas web con lógica",
+        "description": "Aplicaciones con base de datos, autenticación de usuarios, paneles administrativos y procesamiento de información en tiempo real."
+      },
+      {
+        "icon": "🤖",
+        "title": "Bots de Telegram con IA",
+        "description": "Bots programados e integrados con inteligencia artificial para atender clientes, consultar datos y automatizar tareas repetitivas."
+      },
+      {
+        "icon": "🧠",
+        "title": "Integración con IA",
+        "description": "Incorporamos modelos de inteligencia artificial a tu plataforma: traducciones, análisis de documentos, respuestas automáticas y agentes conversacionales."
+      },
+      {
+        "icon": "📄",
+        "title": "OCR y procesamiento de documentos",
+        "description": "Conversión de documentos escaneados a texto editable con alta fidelidad. Automatización del flujo de procesamiento documental."
+      },
+      {
+        "icon": "💳",
+        "title": "Módulos de pagos",
+        "description": "Integración con pasarelas de pago (Wompi, PSE, PayU) o panel de pagos con verificación manual. Trazabilidad completa de transacciones."
+      },
+      {
+        "icon": "📊",
+        "title": "Trazabilidad y CRM básico",
+        "description": "Panel de seguimiento de procesos por cliente con portal de consulta propio. Diferenciación entre clientes particulares e institucionales."
+      },
+      {
+        "icon": "☁️",
+        "title": "Infraestructura en la nube",
+        "description": "Configuración y despliegue en servidores VPS (Digital Ocean, etc.), con control total del entorno y costos predecibles desde $6 USD/mes."
+      }
+    ]
+  },
+  "packages": {
+    "title": "Paquetes",
+    "subtitle": "Escoge el punto de partida que se ajuste a tu presupuesto y necesidades",
+    "cta": "Consultar",
+    "items": [
+      {
+        "name": "Básico",
+        "tag": "Para empezar",
+        "description": "Sitio o herramienta visual sin base de datos. Ideal para validar una idea rápidamente o presentar servicios.",
+        "features": [
+          "Interfaz web interactiva",
+          "Exportación/importación de datos",
+          "Hosting gratuito incluido",
+          "Sin costos de infraestructura"
+        ],
+        "highlight": false
+      },
+      {
+        "name": "Plataforma",
+        "tag": "Más popular",
+        "description": "Solución completa con base de datos, lógica de servidor, panel admin y portal para clientes.",
+        "features": [
+          "Base de datos en la nube",
+          "Panel administrativo",
+          "Portal de clientes con código único",
+          "Integración con IA",
+          "Módulo de pagos",
+          "Dominio y hosting compartido"
+        ],
+        "highlight": true
+      },
+      {
+        "name": "Empresarial",
+        "tag": "Máximo control",
+        "description": "Servidor privado virtual con control total del entorno, bot de Telegram incluido y escalabilidad ilimitada.",
+        "features": [
+          "VPS Digital Ocean desde $6 USD/mes",
+          "Precio fijo sin sorpresas al renovar",
+          "Bot de Telegram con IA integrado",
+          "Cualquier tecnología y base de datos",
+          "Escalabilidad total a futuro",
+          "Agente IA conversacional (add-on)"
+        ],
+        "highlight": false
+      }
+    ]
+  },
+  "contact": {
+    "title": "¿Listo para arrancar?",
+    "subtitle": "Cuéntanos tu idea. En máximo 2 días tienes una propuesta con opciones, costos y tiempos.",
+    "telegram": "Escribir por Telegram",
+    "note": "Respondemos en menos de 24 horas en días hábiles."
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados.",
+    "madeWith": "Hecho con"
+  }
+}

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Procliup — Agencia de desarrollo de software. Plataformas web, bots con IA e integraciones a medida." />
+  <title>Procliup — Desarrollo de Software</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+</head>
+<body>
+
+  <!-- ===================== NAV ===================== -->
+  <nav>
+    <div class="container nav-inner">
+      <span class="nav-logo">procliup</span>
+
+      <ul class="nav-links">
+        <li><a href="#services" data-i18n="nav.services">Servicios</a></li>
+        <li><a href="#packages" data-i18n="nav.packages">Paquetes</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contacto</a></li>
+      </ul>
+
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge" data-i18n="hero.badge">Agencia de Desarrollo</div>
+
+      <h1 class="hero-title">
+        <span data-i18n="hero.title">Construimos software que</span>
+        <span class="hero-title-highlight" data-i18n="hero.titleHighlight">transforma negocios</span>
+      </h1>
+
+      <p class="hero-subtitle" data-i18n="hero.subtitle">
+        Desarrollamos plataformas web, bots inteligentes e integraciones con IA a medida de tu negocio.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#services" class="btn btn-primary" data-i18n="hero.cta">Ver servicios</a>
+        <a href="#contact" class="btn btn-secondary" data-i18n="hero.ctaSecondary">Contactar</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICES ===================== -->
+  <section id="services">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-label">— stack</p>
+        <h2 class="section-title" data-i18n="services.title">¿Qué construimos?</h2>
+        <p class="section-subtitle" data-i18n="services.subtitle">
+          Soluciones tecnológicas adaptadas a cada etapa de tu negocio
+        </p>
+      </div>
+
+      <div id="services-grid" class="services-grid fade-in">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PACKAGES ===================== -->
+  <section id="packages">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-label">— pricing</p>
+        <h2 class="section-title" data-i18n="packages.title">Paquetes</h2>
+        <p class="section-subtitle" data-i18n="packages.subtitle">
+          Escoge el punto de partida que se ajuste a tu presupuesto y necesidades
+        </p>
+      </div>
+
+      <div id="packages-grid" class="packages-grid fade-in">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-box fade-in">
+        <h2 class="contact-title" data-i18n="contact.title">¿Listo para arrancar?</h2>
+        <p class="contact-subtitle" data-i18n="contact.subtitle">
+          Cuéntanos tu idea. En máximo 2 días tienes una propuesta con opciones, costos y tiempos.
+        </p>
+        <a
+          href="https://t.me/TELEGRAM_BOT_PLACEHOLDER"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary"
+          id="telegram-btn"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/>
+          </svg>
+          <span data-i18n="contact.telegram">Escribir por Telegram</span>
+        </a>
+        <p class="contact-note" data-i18n="contact.note">
+          Respondemos en menos de 24 horas en días hábiles.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <div class="container footer-inner">
+      <span class="footer-logo">procliup</span>
+      <p class="footer-copy">
+        © <span id="year"></span> procliup. <span data-i18n="footer.rights">Todos los derechos reservados.</span>
+      </p>
+      <p class="footer-copy">
+        <span data-i18n="footer.madeWith">Hecho con</span> <span class="footer-heart">♥</span>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

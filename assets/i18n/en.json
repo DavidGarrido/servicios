@@ -1,0 +1,118 @@
+{
+  "nav": {
+    "services": "Services",
+    "packages": "Packages",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "Development Agency",
+    "title": "We build software that",
+    "titleHighlight": "transforms businesses",
+    "subtitle": "We develop web platforms, intelligent bots and AI integrations tailored to your business. From a landing page to a full enterprise solution.",
+    "cta": "See services",
+    "ctaSecondary": "Contact us"
+  },
+  "services": {
+    "title": "What do we build?",
+    "subtitle": "Technology solutions adapted to every stage of your business",
+    "items": [
+      {
+        "icon": "🌐",
+        "title": "Websites & landing pages",
+        "description": "Modern, fast and optimized interfaces. Perfect to present your business or attract clients from day one."
+      },
+      {
+        "icon": "⚙️",
+        "title": "Web platforms with logic",
+        "description": "Applications with databases, user authentication, admin panels and real-time data processing."
+      },
+      {
+        "icon": "🤖",
+        "title": "Telegram bots with AI",
+        "description": "Programmed bots integrated with artificial intelligence to serve clients, query data and automate repetitive tasks."
+      },
+      {
+        "icon": "🧠",
+        "title": "AI integration",
+        "description": "We integrate AI models into your platform: translations, document analysis, automated responses and conversational agents."
+      },
+      {
+        "icon": "📄",
+        "title": "OCR & document processing",
+        "description": "High-fidelity conversion of scanned documents to editable text. Automation of document processing workflows."
+      },
+      {
+        "icon": "💳",
+        "title": "Payment modules",
+        "description": "Integration with payment gateways (Wompi, PSE, PayU) or manual verification payment panel. Full transaction traceability."
+      },
+      {
+        "icon": "📊",
+        "title": "Traceability & basic CRM",
+        "description": "Process tracking panel per client with their own query portal. Differentiation between individual and institutional clients."
+      },
+      {
+        "icon": "☁️",
+        "title": "Cloud infrastructure",
+        "description": "Setup and deployment on VPS servers (Digital Ocean, etc.), with full environment control and predictable costs from $6 USD/month."
+      }
+    ]
+  },
+  "packages": {
+    "title": "Packages",
+    "subtitle": "Choose the starting point that fits your budget and needs",
+    "cta": "Get a quote",
+    "items": [
+      {
+        "name": "Basic",
+        "tag": "To get started",
+        "description": "Visual site or tool without a database. Ideal for quickly validating an idea or presenting services.",
+        "features": [
+          "Interactive web interface",
+          "Data export/import",
+          "Free hosting included",
+          "No infrastructure costs"
+        ],
+        "highlight": false
+      },
+      {
+        "name": "Platform",
+        "tag": "Most popular",
+        "description": "Full solution with database, server logic, admin panel and client portal.",
+        "features": [
+          "Cloud database",
+          "Admin panel",
+          "Client portal with unique code",
+          "AI integration",
+          "Payment module",
+          "Domain and shared hosting"
+        ],
+        "highlight": true
+      },
+      {
+        "name": "Enterprise",
+        "tag": "Full control",
+        "description": "Virtual private server with full environment control, Telegram bot included and unlimited scalability.",
+        "features": [
+          "Digital Ocean VPS from $6 USD/month",
+          "Fixed price — no renewal surprises",
+          "Telegram bot with integrated AI",
+          "Any technology and database",
+          "Full scalability",
+          "Conversational AI agent (add-on)"
+        ],
+        "highlight": false
+      }
+    ]
+  },
+  "contact": {
+    "title": "Ready to start?",
+    "subtitle": "Tell us your idea. Within 2 days you'll have a proposal with options, costs and timelines.",
+    "telegram": "Message on Telegram",
+    "note": "We respond within 24 hours on business days."
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "madeWith": "Made with"
+  }
+}

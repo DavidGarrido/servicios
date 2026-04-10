@@ -867,4 +867,56 @@ nav.scrolled {
   .contact-box { padding: 40px 24px; }
 
   .footer-inner { flex-direction: column; text-align: center; }
+
+  /* ---- Quoter mobile ---- */
+  .quoter-box { gap: 14px; }
+
+  .quoter-textarea { font-size: 0.9rem; }
+
+  .qr-meta { flex-direction: column; gap: 8px; }
+
+  /* Convierte la tabla en tarjetas apiladas */
+  .qr-table-wrap { overflow-x: unset; }
+
+  .qr-table thead { display: none; }
+
+  .qr-table tbody tr {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .qr-table tbody tr:last-child { border-bottom: none; }
+
+  .qr-table td {
+    padding: 0;
+    border: none;
+  }
+
+  .price-cell {
+    text-align: left;
+    font-size: 0.88rem;
+    color: var(--text-primary);
+  }
+
+  .qr-table tfoot tr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+  }
+
+  .qr-table tfoot td {
+    padding: 0;
+    border: none;
+  }
+
+  .total-price { font-size: 0.95rem; }
+
+  .qr-actions { justify-content: stretch; }
+
+  .qr-actions .btn { width: 100%; justify-content: center; }
 }

@@ -1,0 +1,48 @@
+{
+  "base": [
+    { "code": "WEB-BASIC",  "name_es": "Sitio web básico",              "name_en": "Basic website",              "price_min": 800000,   "price_max": 1200000  },
+    { "code": "WEB-STD",    "name_es": "Sitio web estándar",            "name_en": "Standard website",           "price_min": 1200000,  "price_max": 2200000  },
+    { "code": "WEB-PRE",    "name_es": "Sitio web premium",             "name_en": "Premium website",            "price_min": 2200000,  "price_max": 3500000  },
+    { "code": "LAR-BASIC",  "name_es": "Plataforma Laravel básica",     "name_en": "Basic Laravel platform",     "price_min": 2500000,  "price_max": 4500000  },
+    { "code": "LAR-MED",    "name_es": "Plataforma Laravel media",      "name_en": "Medium Laravel platform",    "price_min": 4500000,  "price_max": 9000000  },
+    { "code": "LAR-COM",    "name_es": "Plataforma Laravel compleja",   "name_en": "Complex Laravel platform",   "price_min": 9000000,  "price_max": 18000000 },
+    { "code": "BOT-SIM",    "name_es": "Bot Telegram simple",           "name_en": "Simple Telegram bot",        "price_min": 700000,   "price_max": 1300000  },
+    { "code": "BOT-DB",     "name_es": "Bot Telegram con base de datos","name_en": "Telegram bot with database", "price_min": 1300000,  "price_max": 2500000  },
+    { "code": "BOT-AI",     "name_es": "Bot Telegram con IA",           "name_en": "Telegram bot with AI",       "price_min": 2500000,  "price_max": 5000000  },
+    { "code": "ECOM-LAR",   "name_es": "E-commerce en Laravel",         "name_en": "Laravel e-commerce",         "price_min": 6000000,  "price_max": 15000000 },
+    { "code": "APP-MVP",    "name_es": "App móvil MVP",                 "name_en": "Mobile app MVP",             "price_min": 3500000,  "price_max": 5500000  },
+    { "code": "APP-STD",    "name_es": "App móvil estándar",            "name_en": "Standard mobile app",        "price_min": 6000000,  "price_max": 14000000 },
+    { "code": "SAAS-MVP",   "name_es": "SaaS MVP",                      "name_en": "SaaS MVP",                   "price_min": 12000000, "price_max": 25000000 }
+  ],
+  "modules": [
+    { "code": "MOD-AUTH",     "name_es": "Autenticación y roles",              "name_en": "Authentication & roles",        "price_min": 500000,  "price_max": 900000  },
+    { "code": "MOD-PAY-MAN",  "name_es": "Pagos — verificación manual",        "name_en": "Payments — manual verification", "price_min": 600000,  "price_max": 1000000 },
+    { "code": "MOD-PAY-GW",   "name_es": "Pagos — pasarela automática",        "name_en": "Payments — gateway",             "price_min": 1200000, "price_max": 2500000 },
+    { "code": "MOD-TRACK",    "name_es": "Trazabilidad de procesos",            "name_en": "Process traceability",           "price_min": 1000000, "price_max": 2000000 },
+    { "code": "MOD-DOC",      "name_es": "Revisión documental",                "name_en": "Document review",                "price_min": 800000,  "price_max": 1500000 },
+    { "code": "MOD-AI",       "name_es": "Integración con IA",                 "name_en": "AI integration",                 "price_min": 800000,  "price_max": 2500000 },
+    { "code": "MOD-OCR",      "name_es": "OCR y procesamiento de documentos",  "name_en": "OCR & document processing",      "price_min": 700000,  "price_max": 1400000 },
+    { "code": "MOD-QUOTE",    "name_es": "Cotizador automático",               "name_en": "Automatic quoter",               "price_min": 600000,  "price_max": 1200000 },
+    { "code": "MOD-REQ",      "name_es": "Consulta de requisitos por país",    "name_en": "Requirements by country",        "price_min": 1000000, "price_max": 2000000 },
+    { "code": "MOD-GLOS",     "name_es": "Glosario terminológico",             "name_en": "Terminology glossary",           "price_min": 500000,  "price_max": 900000  },
+    { "code": "MOD-PAY-INFO", "name_es": "Panel de pagos informativo",         "name_en": "Informational payment panel",    "price_min": 300000,  "price_max": 600000  },
+    { "code": "MOD-CHAT",     "name_es": "Chatbot con IA",                     "name_en": "AI chatbot",                     "price_min": 1500000, "price_max": 4000000 },
+    { "code": "MOD-AUTO",     "name_es": "Automatización de procesos internos","name_en": "Internal process automation",    "price_min": 800000,  "price_max": 2500000 }
+  ],
+  "integrations": [
+    { "code": "INT-WOMPI", "name_es": "Wompi / PSE / PayU",            "name_en": "Wompi / PSE / PayU",        "price_min": 1200000, "price_max": 2500000 },
+    { "code": "INT-WA",    "name_es": "WhatsApp Business API",         "name_en": "WhatsApp Business API",     "price_min": 2500000, "price_max": 5000000 },
+    { "code": "INT-DIAN",  "name_es": "DIAN — facturación electrónica","name_en": "DIAN — electronic invoicing","price_min": 3000000, "price_max": 8000000 },
+    { "code": "INT-ERP",   "name_es": "ERP / CRM externo",             "name_en": "External ERP / CRM",        "price_min": 3000000, "price_max": 8000000 },
+    { "code": "INT-API",   "name_es": "API genérica de terceros",      "name_en": "Generic third-party API",   "price_min": 2000000, "price_max": 6000000 }
+  ],
+  "infrastructure": [
+    { "code": "INF-VPS",        "name_es": "Configuración VPS",              "name_en": "VPS setup",                  "price_min": 400000, "price_max": 800000,  "monthly": false },
+    { "code": "INF-MAN",        "name_es": "Administración VPS mensual",     "name_en": "Monthly VPS management",     "price_min": 150000, "price_max": 250000,  "monthly": true  },
+    { "code": "INF-MIG",        "name_es": "Migración de sitio/plataforma",  "name_en": "Site/platform migration",    "price_min": 300000, "price_max": 700000,  "monthly": false },
+    { "code": "SVC-MAINT-BASIC","name_es": "Mantenimiento básico mensual",   "name_en": "Basic monthly maintenance",  "price_min": 150000, "price_max": 300000,  "monthly": true  },
+    { "code": "SVC-MAINT-PRO",  "name_es": "Mantenimiento activo mensual",   "name_en": "Active monthly maintenance", "price_min": 350000, "price_max": 600000,  "monthly": true  },
+    { "code": "SVC-HOUR",       "name_es": "Soporte por hora",               "name_en": "Hourly support",             "price_min": 60000,  "price_max": 100000,  "per_hour": true },
+    { "code": "CON-TECH",       "name_es": "Consultoría técnica",            "name_en": "Technical consulting",       "price_min": 300000, "price_max": 900000,  "monthly": false }
+  ]
+}

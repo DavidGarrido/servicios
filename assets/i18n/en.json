@@ -2,6 +2,7 @@
   "nav": {
     "services": "Services",
     "packages": "Packages",
+    "quoter": "Quoter",
     "contact": "Contact"
   },
   "hero": {
@@ -104,6 +105,24 @@
         "highlight": false
       }
     ]
+  },
+  "quoter": {
+    "title": "AI Quoter",
+    "subtitle": "Describe what you need in plain language. The AI detects the services and generates a quote in seconds.",
+    "label": "What do you need to build?",
+    "placeholder": "Example: I need a platform to manage clients, with login, payments and process tracking...",
+    "hint": "Ctrl + Enter to submit",
+    "cta": "Get AI Quote",
+    "loading": "Analyzing...",
+    "confidence": "confidence",
+    "thService": "Service",
+    "thCode": "Code",
+    "thRange": "Price range",
+    "total": "Estimated total",
+    "questionsTitle": "To refine the quote:",
+    "telegramCta": "Contact on Telegram",
+    "errorEmpty": "Please describe your requirement before quoting.",
+    "errorWorker": "Could not connect to the service. Please try again later."
   },
   "contact": {
     "title": "Ready to start?",

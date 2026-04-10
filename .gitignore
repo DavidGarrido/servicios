@@ -1,0 +1,58 @@
+# ─────────────────────────────────────────
+# Documentos internos — no públicos
+# ─────────────────────────────────────────
+assets/docs/
+
+# Worker de Cloudflare — se despliega aparte desde su propio repo
+worker/
+
+# Variables de entorno y claves
+.env
+.env.*
+*.env
+
+# ─────────────────────────────────────────
+# Dependencias
+# ─────────────────────────────────────────
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# ─────────────────────────────────────────
+# Sistema operativo
+# ─────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ─────────────────────────────────────────
+# Editores e IDEs
+# ─────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# ─────────────────────────────────────────
+# Logs y temporales
+# ─────────────────────────────────────────
+*.log
+*.tmp
+*.temp
+*.cache
+.cache/
+
+# ─────────────────────────────────────────
+# Builds (si en algún momento se agrega bundler)
+# ─────────────────────────────────────────
+dist/
+build/
+.parcel-cache/
+.vite/

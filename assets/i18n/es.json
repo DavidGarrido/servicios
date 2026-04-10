@@ -2,6 +2,7 @@
   "nav": {
     "services": "Servicios",
     "packages": "Paquetes",
+    "quoter": "Cotizador",
     "contact": "Contacto"
   },
   "hero": {
@@ -104,6 +105,24 @@
         "highlight": false
       }
     ]
+  },
+  "quoter": {
+    "title": "Cotizador inteligente",
+    "subtitle": "Describe en lenguaje natural lo que necesitas. La IA detecta los servicios y genera una cotización en segundos.",
+    "label": "¿Qué necesitas construir?",
+    "placeholder": "Ejemplo: Necesito una plataforma para gestionar clientes, con login, pagos y seguimiento de procesos...",
+    "hint": "Ctrl + Enter para enviar",
+    "cta": "Cotizar con IA",
+    "loading": "Analizando...",
+    "confidence": "confianza",
+    "thService": "Servicio",
+    "thCode": "Código",
+    "thRange": "Rango de precio",
+    "total": "Total estimado",
+    "questionsTitle": "Para afinar la cotización:",
+    "telegramCta": "Contactar por Telegram",
+    "errorEmpty": "Escribe tu requerimiento antes de cotizar.",
+    "errorWorker": "No se pudo conectar con el servicio. Intenta más tarde."
   },
   "contact": {
     "title": "¿Listo para arrancar?",

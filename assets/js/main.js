@@ -24,8 +24,15 @@ function applyTranslations() {
     if (val !== undefined) el.textContent = val;
   });
 
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.dataset.i18nPlaceholder;
+    const val = getNestedKey(translations, key);
+    if (val !== undefined) el.placeholder = val;
+  });
+
   renderServices();
   renderPackages();
+  window.rerenderQuoterResult?.();
 }
 
 function getNestedKey(obj, path) {

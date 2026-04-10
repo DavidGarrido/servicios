@@ -18,6 +18,7 @@
       <ul class="nav-links">
         <li><a href="#services" data-i18n="nav.services">Servicios</a></li>
         <li><a href="#packages" data-i18n="nav.packages">Paquetes</a></li>
+        <li><a href="#quoter" data-i18n="nav.quoter">Cotizador</a></li>
         <li><a href="#contact" data-i18n="nav.contact">Contacto</a></li>
       </ul>
 
@@ -83,6 +84,43 @@
     </div>
   </section>
 
+  <!-- ===================== QUOTER ===================== -->
+  <section id="quoter">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-label">— ia</p>
+        <h2 class="section-title" data-i18n="quoter.title">Cotizador inteligente</h2>
+        <p class="section-subtitle" data-i18n="quoter.subtitle">
+          Describe lo que necesitas y la IA detecta los servicios y genera una cotización automática.
+        </p>
+      </div>
+
+      <div class="quoter-box fade-in">
+        <label class="quoter-label" for="quoter-input" data-i18n="quoter.label">
+          ¿Qué necesitas construir?
+        </label>
+        <textarea
+          id="quoter-input"
+          class="quoter-textarea"
+          rows="4"
+          data-i18n-placeholder="quoter.placeholder"
+          placeholder="Ejemplo: Necesito una plataforma para gestionar clientes, con login, pagos y seguimiento de procesos..."
+        ></textarea>
+        <p class="quoter-hint" data-i18n="quoter.hint">Ctrl + Enter para enviar</p>
+
+        <button id="quoter-btn" class="btn btn-primary">
+          <svg id="quoter-spinner" class="spinner hidden" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+          </svg>
+          <span id="quoter-btn-label" data-i18n="quoter.cta">Cotizar con IA</span>
+        </button>
+
+        <div id="quoter-error" class="quoter-error hidden"></div>
+        <div id="quoter-result" class="quoter-result hidden"></div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===================== CONTACT ===================== -->
   <section id="contact">
     <div class="container">
@@ -127,5 +165,6 @@
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/quoter.js"></script>
 </body>
 </html>

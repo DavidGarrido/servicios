@@ -6,15 +6,14 @@
 const WORKER_URL      = 'https://procliup-quoter.www-davidalexander.workers.dev';
 const TELEGRAM_HANDLE = 'TELEGRAM_BOT_PLACEHOLDER';            // Reemplazar con handle real
 
-let servicesCache  = null;
+let servicesCache  = null; // solo para re-render al cambiar idioma, nunca como caché
 let lastAIResponse = null;
 let lastClientText = '';
 
-/* ---- Carga services.json (lazy) ---- */
+/* ---- Carga services.json siempre fresco desde red ---- */
 async function loadServices() {
-  if (servicesCache) return servicesCache;
-  const res = await fetch('assets/data/services.json');
-  servicesCache = await res.json();
+  const res = await fetch('assets/data/services.json', { cache: 'no-store' });
+  servicesCache = await res.json(); // sobreescribe siempre
   return servicesCache;
 }
 

@@ -1019,3 +1019,120 @@ nav.scrolled {
 
   .qr-actions .btn { width: 100%; justify-content: center; }
 }
+
+/* =============================================
+   LIGHT THEME
+   ============================================= */
+body.light-theme {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --bg-card: #ffffff;
+  --border: #e2e8f0;
+  --border-subtle: #f1f5f9;
+  --text-primary: #0f172b;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+}
+body.light-theme nav {
+  background: rgba(248, 250, 252, 0.85);
+}
+body.light-theme::before {
+  opacity: 0.1;
+}
+
+.theme-toggle {
+  cursor: pointer;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  transition: all 0.2s;
+}
+.theme-toggle:hover {
+  border-color: var(--slate-500);
+}
+.theme-toggle svg {
+  width: 16px;
+  height: 16px;
+  color: var(--text-secondary);
+}
+body.light-theme .theme-toggle svg {
+  color: var(--text-primary);
+}
+
+/* =============================================
+   PROJECTS
+   ============================================= */
+#projects {
+  padding: 80px 0;
+}
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 32px;
+}
+.project-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.project-card:hover {
+  border-color: var(--slate-500);
+  transform: translateY(-2px);
+}
+.project-viewer {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+.project-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.project-card:hover .project-thumb {
+  transform: scale(1.03);
+}
+.project-info {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.project-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+.project-desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--sky-400);
+  transition: color 0.2s;
+  margin-top: 8px;
+}
+.project-link:hover {
+  color: var(--violet-500);
+}

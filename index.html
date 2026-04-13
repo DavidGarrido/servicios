@@ -108,6 +108,12 @@
         ></textarea>
         <p class="quoter-hint" data-i18n="quoter.hint">Ctrl + Enter para enviar</p>
 
+        <div class="quoter-contact">
+          <input type="text"  id="quoter-name"  class="quoter-input" data-i18n-placeholder="quoter.contactName"  placeholder="Nombre" />
+          <input type="email" id="quoter-email" class="quoter-input" data-i18n-placeholder="quoter.contactEmail" placeholder="Correo electrónico" />
+          <input type="tel"   id="quoter-phone" class="quoter-input" data-i18n-placeholder="quoter.contactPhone" placeholder="WhatsApp (opcional)" />
+        </div>
+
         <button id="quoter-btn" class="btn btn-primary">
           <svg id="quoter-spinner" class="spinner hidden" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>

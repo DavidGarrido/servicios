@@ -5,6 +5,7 @@
 
 const WORKER_URL      = 'https://procliup-quoter.www-davidalexander.workers.dev';
 const TELEGRAM_HANDLE = 'TELEGRAM_BOT_PLACEHOLDER';            // Reemplazar con handle real
+// URL del Apps Script — se configura en el Worker como secret SHEETS_WEBHOOK_URL
 
 let servicesCache  = null; // solo para re-render al cambiar idioma, nunca como caché
 let lastAIResponse = null;
@@ -116,6 +117,8 @@ function renderResult() {
 
   container.innerHTML = html;
   container.classList.remove('hidden');
+
+  saveQuotation(rows, totalMin, totalMax);
 }
 
 /* ---- Construye la URL de Telegram con el mensaje pre-escrito ---- */
@@ -203,6 +206,32 @@ async function submitQuote() {
   } finally {
     setLoading(false);
   }
+}
+
+/* ---- Guarda cotización en Google Sheets vía Worker (evita CORS) ---- */
+function saveQuotation(rows, totalMin, totalMax) {
+  const lang = currentLang || 'es';
+  const nameKey = lang === 'en' ? 'name_en' : 'name_es';
+  fetch(WORKER_URL, {
+    method:  'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      log:             true,
+      timestamp:       new Date().toISOString(),
+      client_name:     document.getElementById('quoter-name')?.value.trim()  || '',
+      client_email:    document.getElementById('quoter-email')?.value.trim() || '',
+      client_phone:    document.getElementById('quoter-phone')?.value.trim() || '',
+      text:            lastClientText,
+      summary:         lastAIResponse.summary    || '',
+      confidence:      lastAIResponse.confidence || 0,
+      services:        rows.map(r => r.code).join(', '),
+      services_detail: rows.map(r => `${r.code}: ${r.reason || (r.svc[nameKey] || r.svc.name_es)}`).join(' | '),
+      services_prices: rows.map(r => `${r.code}: ${cop(r.svc.price_min)}–${cop(r.svc.price_max)}`).join(' | '),
+      budget_min:      totalMin,
+      budget_max:      totalMax,
+      questions:       (lastAIResponse.questions || []).join(' | '),
+    }),
+  }).catch(() => {});
 }
 
 /* ---- Re-renderiza si el idioma cambia con un resultado activo ---- */

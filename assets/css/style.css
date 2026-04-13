@@ -568,6 +568,33 @@ nav {
   margin-top: -8px;
 }
 
+.quoter-contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+
+.quoter-input {
+  width: 100%;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.9rem;
+  transition: border-color 0.2s;
+}
+
+.quoter-input:focus {
+  outline: none;
+  border-color: var(--sky-400);
+}
+
+.quoter-input::placeholder {
+  color: var(--text-muted);
+}
+
 .quoter-error {
   font-size: 0.875rem;
   color: #f87171;
@@ -870,8 +897,8 @@ nav.scrolled {
 
   /* ---- Quoter mobile ---- */
   .quoter-box { gap: 14px; }
-
   .quoter-textarea { font-size: 0.9rem; }
+  .quoter-contact { grid-template-columns: 1fr; }
 
   .qr-meta { flex-direction: column; gap: 8px; }
 

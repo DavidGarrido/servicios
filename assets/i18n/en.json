@@ -122,7 +122,10 @@
     "questionsTitle": "To refine the quote:",
     "telegramCta": "Contact on Telegram",
     "errorEmpty": "Please describe your requirement before quoting.",
-    "errorWorker": "Could not connect to the service. Please try again later."
+    "errorWorker": "Could not connect to the service. Please try again later.",
+    "contactName": "Name",
+    "contactEmail": "Email address",
+    "contactPhone": "WhatsApp (optional)"
   },
   "contact": {
     "title": "Ready to start?",

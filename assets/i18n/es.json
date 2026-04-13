@@ -122,7 +122,10 @@
     "questionsTitle": "Para afinar la cotización:",
     "telegramCta": "Contactar por Telegram",
     "errorEmpty": "Escribe tu requerimiento antes de cotizar.",
-    "errorWorker": "No se pudo conectar con el servicio. Intenta más tarde."
+    "errorWorker": "No se pudo conectar con el servicio. Intenta más tarde.",
+    "contactName": "Nombre",
+    "contactEmail": "Correo electrónico",
+    "contactPhone": "WhatsApp (opcional)"
   },
   "contact": {
     "title": "¿Listo para arrancar?",

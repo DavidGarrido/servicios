@@ -7,9 +7,10 @@ const WORKER_URL      = 'https://procliup-quoter.www-davidalexander.workers.dev'
 const TELEGRAM_HANDLE = 'TELEGRAM_BOT_PLACEHOLDER';            // Reemplazar con handle real
 // URL del Apps Script — se configura en el Worker como secret SHEETS_WEBHOOK_URL
 
-let servicesCache  = null; // solo para re-render al cambiar idioma, nunca como caché
+let servicesCache  = null;
 let lastAIResponse = null;
 let lastClientText = '';
+let existingQuote  = null; // cotización previa del cliente (por email)
 
 /* ---- Carga services.json siempre fresco desde red ---- */
 async function loadServices() {
@@ -99,26 +100,38 @@ function renderResult() {
     html += `
       <div class="qr-questions">
         <p class="qr-questions-title">${t('quoter.questionsTitle')}</p>
-        <ul>${lastAIResponse.questions.map(q => `<li>${q}</li>`).join('')}</ul>
+        ${lastAIResponse.questions.map((q, i) => `
+          <div class="qr-question-item">
+            <label class="qr-question-label">${q}</label>
+            <textarea class="quoter-textarea qr-question-input" rows="2" data-question="${i}" placeholder="Tu respuesta..."></textarea>
+          </div>`).join('')}
+        <button class="btn btn-secondary qr-refine-btn" onclick="refineQuote()">${t('quoter.refineCta')}</button>
       </div>`;
   }
 
+  const clientName = document.getElementById('quoter-name')?.value.trim();
   html += `
     <div class="qr-actions">
-      <a href="${buildTelegramURL(rows, totalMin, totalMax)}"
-         target="_blank" rel="noopener noreferrer"
-         class="btn btn-primary">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/>
-        </svg>
-        ${t('quoter.telegramCta')}
-      </a>
+      <p class="qr-saved-notice">✓ ${clientName ? `${clientName}, h` : 'H'}emos guardado tu solicitud. Te contactaremos pronto.</p>
     </div>`;
+
+  const isSameProject = existingQuote && lastAIResponse.is_same_project === true;
+
+  if (existingQuote) {
+    const fecha = new Date(existingQuote.timestamp).toLocaleDateString('es-CO');
+    html += `
+      <div class="qr-existing-notice">
+        <p>${isSameProject
+          ? `Solicitud vinculada a tu cotización del <strong>${fecha}</strong> — cotización actualizada.`
+          : `Proyecto diferente a tu cotización del <strong>${fecha}</strong> — guardada como nueva.`
+        }</p>
+      </div>`;
+  }
 
   container.innerHTML = html;
   container.classList.remove('hidden');
 
-  saveQuotation(rows, totalMin, totalMax);
+  saveQuotation(rows, totalMin, totalMax, isSameProject);
 }
 
 /* ---- Construye la URL de Telegram con el mensaje pre-escrito ---- */
@@ -177,6 +190,8 @@ async function submitQuote() {
   const text = input.value.trim();
   if (!text) { showError(t('quoter.errorEmpty')); return; }
 
+  console.log('[quoter] existingQuote al submit:', existingQuote);
+
   clearError();
   document.getElementById('quoter-result')?.classList.add('hidden');
   setLoading(true);
@@ -186,9 +201,16 @@ async function submitQuote() {
       fetch(WORKER_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text }),
+        body: JSON.stringify({
+          text,
+          ...(existingQuote ? {
+            existing_text:     existingQuote.text     || '',
+            existing_summary:  existingQuote.summary  || '',
+            existing_services: existingQuote.services || '',
+          } : {}),
+        }),
       }),
-      loadServices(), // popula servicesCache como efecto secundario
+      loadServices(),
     ]);
 
     const data = await res.json();
@@ -209,14 +231,16 @@ async function submitQuote() {
 }
 
 /* ---- Guarda cotización en Google Sheets vía Worker (evita CORS) ---- */
-function saveQuotation(rows, totalMin, totalMax) {
+async function saveQuotation(rows, totalMin, totalMax, doUpdate) {
   const lang = currentLang || 'es';
   const nameKey = lang === 'en' ? 'name_en' : 'name_es';
-  fetch(WORKER_URL, {
+  const saved = fetch(WORKER_URL, {
     method:  'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       log:             true,
+      update:          doUpdate === true,
+      row_index:       doUpdate === true ? existingQuote?.row_index : null,
       timestamp:       new Date().toISOString(),
       client_name:     document.getElementById('quoter-name')?.value.trim()  || '',
       client_email:    document.getElementById('quoter-email')?.value.trim() || '',
@@ -231,7 +255,128 @@ function saveQuotation(rows, totalMin, totalMax) {
       budget_max:      totalMax,
       questions:       (lastAIResponse.questions || []).join(' | '),
     }),
-  }).catch(() => {});
+  });
+  try {
+    const res      = await saved;
+    const data     = await res.json();
+    const rowIndex = data.sheets?.row_index || existingQuote?.row_index;
+    if (rowIndex) {
+      // Mantener existingQuote actualizado para refinadas posteriores
+      existingQuote = {
+        row_index: rowIndex,
+        text:      lastClientText,
+        summary:   lastAIResponse?.summary  || '',
+        services:  rows.map(r => r.code).join(', '),
+      };
+    }
+  } catch { /* silencioso */ }
+}
+
+/* ---- Muestra/oculta el formulario principal ---- */
+function showMainForm(prefill = '') {
+  const form = document.getElementById('quoter-main-form');
+  const btn  = document.getElementById('quoter-btn');
+  const input = document.getElementById('quoter-input');
+  if (form) form.classList.remove('hidden');
+  if (btn)  btn.classList.remove('hidden');
+  if (input && prefill) input.value = prefill;
+  form?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+/* ---- Tabla resumen de cotización existente ---- */
+async function renderExistingTable(quote) {
+  const el = document.getElementById('quoter-existing-table');
+  if (!el) return;
+  const lang    = currentLang || 'es';
+  const nameKey = lang === 'en' ? 'name_en' : 'name_es';
+  const svcData = servicesCache || await loadServices();
+  const codes   = (quote.services || '').split(',').map(c => c.trim()).filter(Boolean);
+  const rows    = codes.map(code => ({ code, svc: findService(svcData, code) })).filter(r => r.svc);
+
+  if (!rows.length) { el.innerHTML = ''; return; }
+
+  el.innerHTML = `
+    <div class="qr-table-wrap" style="margin-top:12px">
+      <table class="qr-table">
+        <thead><tr><th>${t('quoter.thService')}</th><th>${t('quoter.thCode')}</th><th>${t('quoter.thRange')}</th></tr></thead>
+        <tbody>
+          ${rows.map(({ code, svc }) => `
+            <tr>
+              <td><span class="svc-name">${svc[nameKey] || svc.name_es}</span></td>
+              <td><code class="svc-code">${code}</code></td>
+              <td class="price-cell">${cop(svc.price_min)} – ${cop(svc.price_max)}</td>
+            </tr>`).join('')}
+        </tbody>
+        <tfoot><tr>
+          <td colspan="2" class="total-label">${t('quoter.total')}</td>
+          <td class="price-cell total-price">${cop(quote.budget_min)} – ${cop(quote.budget_max)} COP</td>
+        </tr></tfoot>
+      </table>
+    </div>`;
+}
+
+/* ---- Lookup de cotización existente por email ---- */
+async function checkExistingQuote(email) {
+  existingQuote = null;
+  const choiceEl  = document.getElementById('quoter-existing-choice');
+  const msgEl     = document.getElementById('quoter-existing-msg');
+  const statusEl  = document.getElementById('quoter-lookup-status');
+  const form      = document.getElementById('quoter-main-form');
+  const btn       = document.getElementById('quoter-btn');
+
+  form?.classList.add('hidden');
+  btn?.classList.add('hidden');
+  choiceEl?.classList.add('hidden');
+
+  if (!email) { showMainForm(); return; }
+
+  if (statusEl) { statusEl.textContent = 'Buscando cotizaciones anteriores…'; statusEl.classList.remove('hidden'); }
+
+  try {
+    const res  = await fetch(`${WORKER_URL}?email=${encodeURIComponent(email)}`);
+    const data = await res.json();
+
+    if (data.found) {
+      existingQuote = data;
+      const fecha = new Date(data.timestamp).toLocaleDateString('es-CO');
+      if (msgEl) msgEl.innerHTML = `Tienes una cotización activa del <strong>${fecha}</strong>. ¿Qué deseas hacer?`;
+      if (statusEl) statusEl.classList.add('hidden');
+      await renderExistingTable(data);
+      choiceEl?.classList.remove('hidden');
+    } else {
+      if (statusEl) statusEl.classList.add('hidden');
+      showMainForm();
+    }
+  } catch {
+    if (statusEl) statusEl.classList.add('hidden');
+    showMainForm();
+  }
+}
+
+/* ---- Re-envía cotización con respuestas a las preguntas de la IA ---- */
+async function refineQuote() {
+  const inputs = document.querySelectorAll('.qr-question-input');
+  const qa = [];
+  inputs.forEach(input => {
+    const i   = input.dataset.question;
+    const q   = lastAIResponse.questions[i];
+    const ans = input.value.trim();
+    if (ans) qa.push(`- ${q} → ${ans}`);
+  });
+
+  if (!qa.length) return;
+
+  // Asegurar que existingQuote tenga el contexto actual para que la IA
+  // siempre identifique esto como el mismo proyecto
+  if (!existingQuote) existingQuote = {};
+  existingQuote.text     = lastClientText;
+  existingQuote.summary  = lastAIResponse?.summary  || '';
+  existingQuote.services = (lastAIResponse?.services || []).map(s => s.code).join(', ');
+
+  const refinedText = `${lastClientText}\n\nRespuestas a preguntas de aclaración:\n${qa.join('\n')}`;
+  document.getElementById('quoter-input').value = refinedText;
+  document.getElementById('quoter-result')?.classList.add('hidden');
+  await submitQuote();
 }
 
 /* ---- Re-renderiza si el idioma cambia con un resultado activo ---- */
@@ -248,5 +393,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   input?.addEventListener('keydown', e => {
     if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) submitQuote();
+  });
+
+  document.getElementById('quoter-email')?.addEventListener('blur', e => {
+    const name = document.getElementById('quoter-name')?.value.trim();
+    if (name) checkExistingQuote(e.target.value.trim());
+    else if (e.target.value.trim()) checkExistingQuote(e.target.value.trim());
+  });
+
+  document.getElementById('btn-continue-quote')?.addEventListener('click', () => {
+    document.getElementById('quoter-existing-choice')?.classList.add('hidden');
+    showMainForm(existingQuote?.text || '');
+  });
+
+  document.getElementById('btn-new-quote')?.addEventListener('click', () => {
+    existingQuote = null;
+    document.getElementById('quoter-existing-choice')?.classList.add('hidden');
+    showMainForm('');
   });
 });

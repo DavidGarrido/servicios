@@ -125,7 +125,10 @@
     "errorWorker": "No se pudo conectar con el servicio. Intenta más tarde.",
     "contactName": "Nombre",
     "contactEmail": "Correo electrónico",
-    "contactPhone": "WhatsApp (opcional)"
+    "contactPhone": "WhatsApp (opcional)",
+    "continueCta": "Continuar con ella",
+    "newCta": "Nueva cotización",
+    "refineCta": "Refinar cotización"
   },
   "contact": {
     "title": "¿Listo para arrancar?",

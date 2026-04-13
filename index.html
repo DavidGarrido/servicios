@@ -96,25 +96,43 @@
       </div>
 
       <div class="quoter-box fade-in">
-        <label class="quoter-label" for="quoter-input" data-i18n="quoter.label">
-          ¿Qué necesitas construir?
-        </label>
-        <textarea
-          id="quoter-input"
-          class="quoter-textarea"
-          rows="4"
-          data-i18n-placeholder="quoter.placeholder"
-          placeholder="Ejemplo: Necesito una plataforma para gestionar clientes, con login, pagos y seguimiento de procesos..."
-        ></textarea>
-        <p class="quoter-hint" data-i18n="quoter.hint">Ctrl + Enter para enviar</p>
 
-        <div class="quoter-contact">
+        <!-- Paso 1: Datos de contacto -->
+        <div class="quoter-contact quoter-contact--top">
           <input type="text"  id="quoter-name"  class="quoter-input" data-i18n-placeholder="quoter.contactName"  placeholder="Nombre" />
           <input type="email" id="quoter-email" class="quoter-input" data-i18n-placeholder="quoter.contactEmail" placeholder="Correo electrónico" />
-          <input type="tel"   id="quoter-phone" class="quoter-input" data-i18n-placeholder="quoter.contactPhone" placeholder="WhatsApp (opcional)" />
         </div>
 
-        <button id="quoter-btn" class="btn btn-primary">
+        <!-- Indicador de búsqueda -->
+        <p id="quoter-lookup-status" class="quoter-lookup-status hidden"></p>
+
+        <!-- Paso 2: ¿Cotización existente? -->
+        <div id="quoter-existing-choice" class="quoter-existing-choice hidden">
+          <p id="quoter-existing-msg"></p>
+          <div id="quoter-existing-table"></div>
+          <div class="quoter-existing-btns">
+            <button id="btn-continue-quote" class="btn btn-primary"  data-i18n="quoter.continueCta">Continuar con ella</button>
+            <button id="btn-new-quote"      class="btn btn-secondary" data-i18n="quoter.newCta">Nueva cotización</button>
+          </div>
+        </div>
+
+        <!-- Paso 3: Descripción + envío (oculto hasta elección) -->
+        <div id="quoter-main-form" class="hidden">
+          <label class="quoter-label" for="quoter-input" data-i18n="quoter.label">
+            ¿Qué necesitas construir?
+          </label>
+          <textarea
+            id="quoter-input"
+            class="quoter-textarea"
+            rows="4"
+            data-i18n-placeholder="quoter.placeholder"
+            placeholder="Ejemplo: Necesito una plataforma para gestionar clientes, con login, pagos y seguimiento de procesos..."
+          ></textarea>
+          <p class="quoter-hint" data-i18n="quoter.hint">Ctrl + Enter para enviar</p>
+          <input type="tel" id="quoter-phone" class="quoter-input" data-i18n-placeholder="quoter.contactPhone" placeholder="WhatsApp (opcional)" />
+        </div>
+
+        <button id="quoter-btn" class="btn btn-primary hidden">
           <svg id="quoter-spinner" class="spinner hidden" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
           </svg>

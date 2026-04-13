@@ -574,6 +574,32 @@ nav {
   gap: 12px;
 }
 
+.quoter-contact--top {
+  grid-template-columns: 1fr 1fr;
+}
+
+.quoter-existing-choice {
+  background: rgba(0, 188, 254, 0.06);
+  border: 1px solid rgba(0, 188, 254, 0.25);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.quoter-existing-choice p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.quoter-existing-btns {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
 .quoter-input {
   width: 100%;
   background: var(--bg-secondary);
@@ -593,6 +619,52 @@ nav {
 
 .quoter-input::placeholder {
   color: var(--text-muted);
+}
+
+.quoter-lookup-status {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.qr-saved-notice {
+  font-size: 0.9rem;
+  color: var(--sky-400);
+  margin: 0;
+}
+
+.qr-question-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.qr-question-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.qr-question-input {
+  min-height: 60px;
+  font-size: 0.875rem;
+}
+
+.qr-refine-btn {
+  margin-top: 4px;
+}
+
+.qr-existing-notice {
+  background: rgba(0, 188, 254, 0.06);
+  border: 1px solid rgba(0, 188, 254, 0.25);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+}
+
+.qr-existing-notice p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0;
 }
 
 .quoter-error {

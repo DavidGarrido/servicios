@@ -125,7 +125,10 @@
     "errorWorker": "Could not connect to the service. Please try again later.",
     "contactName": "Name",
     "contactEmail": "Email address",
-    "contactPhone": "WhatsApp (optional)"
+    "contactPhone": "WhatsApp (optional)",
+    "continueCta": "Continue with it",
+    "newCta": "New quotation",
+    "refineCta": "Refine quotation"
   },
   "contact": {
     "title": "Ready to start?",

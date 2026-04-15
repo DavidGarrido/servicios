@@ -1,17 +1,34 @@
 {
+  "meta": {
+    "title": "Procliup — Custom Software Development | Web Platforms & AI",
+    "description": "Custom software development agency. Web platforms, AI bots and enterprise integrations. Get an instant AI-powered quote in seconds. 24h response time.",
+    "lang": "en"
+  },
   "nav": {
     "services": "Services",
+    "process": "Process",
     "packages": "Packages",
     "quoter": "Quoter",
+    "faq": "FAQ",
     "contact": "Contact"
   },
   "hero": {
     "badge": "Development Agency",
-    "title": "We build software that",
-    "titleHighlight": "transforms businesses",
+    "title": "Custom software that",
+    "titleHighlight": "scales your business",
     "subtitle": "We develop web platforms, intelligent bots and AI integrations tailored to your business. From a landing page to a full enterprise solution.",
     "cta": "See services",
     "ctaSecondary": "Contact us"
+  },
+  "stats": {
+    "projects": "15+",
+    "projectsLabel": "Projects delivered",
+    "response": "24h",
+    "responseLabel": "Response time",
+    "countries": "3+",
+    "countriesLabel": "Countries",
+    "ai": "AI",
+    "aiLabel": "Smart quoter"
   },
   "services": {
     "title": "What do we build?",
@@ -130,10 +147,74 @@
     "newCta": "New quotation",
     "refineCta": "Refine quotation"
   },
+  "process": {
+    "title": "How we work",
+    "subtitle": "A clear, no-surprise process from idea to launch",
+    "step1": {
+      "title": "We understand your business",
+      "desc": "We listen to your idea, analyze your operations and define the real scope. No unnecessary jargon."
+    },
+    "step2": {
+      "title": "Proposal in 48 hours",
+      "desc": "You receive a detailed proposal with options, real costs and timelines. No commitment required."
+    },
+    "step3": {
+      "title": "Iterative development",
+      "desc": "We build in stages with partial deliveries. You see real progress from the first week."
+    },
+    "step4": {
+      "title": "Delivery and support",
+      "desc": "We launch, train your team and stay by your side. The code is yours — no dependencies, no surprises."
+    }
+  },
+  "testimonials": {
+    "title": "What our clients say",
+    "t1": {
+      "text": "\"They delivered the platform on time and exactly as agreed. The team understands the business, not just the code.\"",
+      "name": "Julián Montoya",
+      "role": "CEO, Conectando Talento"
+    },
+    "t2": {
+      "text": "\"The AI quoter saved us hours of back-and-forth. We knew exactly what we were getting before signing.\"",
+      "name": "Andrea Ríos",
+      "role": "Founder, Credifácil Colombia"
+    },
+    "t3": {
+      "text": "\"We've been working together for over a year. Communication is direct, deadlines are met, and post-delivery support is real.\"",
+      "name": "Carlos Liberos",
+      "role": "Director, Libercol"
+    }
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "items": [
+      {
+        "q": "How much does custom software development cost?",
+        "a": "It depends on scope. A basic website starts at $500 USD. A platform with database, admin panel and integrations can range from $1,500 to $8,000 USD. Use our AI quoter to get an estimate in seconds."
+      },
+      {
+        "q": "How long does development take?",
+        "a": "A basic site can be ready in 1-2 weeks. A full platform takes 4 to 12 weeks depending on complexity. We always provide a detailed timeline before starting."
+      },
+      {
+        "q": "Do I own the source code?",
+        "a": "Yes. 100% of the source code is yours. No platform dependencies, no hidden licenses. You can take it to any other developer if needed."
+      },
+      {
+        "q": "What happens after delivery?",
+        "a": "We offer post-launch support, team training and ongoing assistance for future evolutions. We don't disappear after delivery."
+      },
+      {
+        "q": "Do you work with companies outside Colombia?",
+        "a": "Yes. We have clients in Colombia, the United States and other Latin American countries. We work in Spanish and English and adapt to any time zone."
+      }
+    ]
+  },
   "contact": {
     "title": "Ready to start?",
     "subtitle": "Tell us your idea. Within 2 days you'll have a proposal with options, costs and timelines.",
     "telegram": "Message on Telegram",
+    "whatsapp": "Message on WhatsApp",
     "note": "We respond within 24 hours on business days."
   },
   "footer": {

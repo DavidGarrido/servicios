@@ -1,10 +1,41 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" id="html-root">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Procliup — Agencia de desarrollo de software. Plataformas web, bots con IA e integraciones a medida." />
-  <title>Procliup — Desarrollo de Software</title>
+  <meta name="description" content="Procliup — Agencia de desarrollo de software a medida en Colombia. Plataformas web, bots con IA e integraciones empresariales. Cotiza en minutos con IA." />
+  <title>Procliup — Software a Medida en Colombia | Plataformas Web e IA</title>
+  <link rel="canonical" href="https://procliup.com/" />
+  <link rel="alternate" hreflang="es" href="https://procliup.com/" />
+  <link rel="alternate" hreflang="en" href="https://procliup.com/?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://procliup.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://procliup.com/" />
+  <meta property="og:title" content="Procliup — Software a Medida en Colombia" />
+  <meta property="og:description" content="Desarrollamos plataformas web, bots con IA e integraciones a medida. Cotiza en minutos con nuestro cotizador inteligente." />
+  <meta property="og:image" content="https://procliup.com/assets/img/og-cover.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Schema: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Procliup",
+    "url": "https://procliup.com",
+    "logo": "https://procliup.com/assets/img/logo.png",
+    "description": "Agencia de desarrollo de software a medida en Colombia. Plataformas web, bots con IA e integraciones empresariales.",
+    "areaServed": ["CO", "US", "LA"],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "availableLanguage": ["Spanish", "English"]
+    }
+  }
+  </script>
+
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
 </head>
@@ -17,8 +48,10 @@
 
       <ul class="nav-links">
         <li><a href="#services" data-i18n="nav.services">Servicios</a></li>
+        <li><a href="#process" data-i18n="nav.process">Proceso</a></li>
         <li><a href="#packages" data-i18n="nav.packages">Paquetes</a></li>
         <li><a href="#quoter" data-i18n="nav.quoter">Cotizador</a></li>
+        <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
         <li><a href="#contact" data-i18n="nav.contact">Contacto</a></li>
       </ul>
 
@@ -57,6 +90,30 @@
     </div>
   </section>
 
+  <!-- ===================== STATS ===================== -->
+  <section id="stats" class="stats-section">
+    <div class="container">
+      <div class="stats-grid fade-in">
+        <div class="stat-item">
+          <span class="stat-number" data-i18n="stats.projects">15+</span>
+          <span class="stat-label" data-i18n="stats.projectsLabel">Proyectos entregados</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-i18n="stats.response">24h</span>
+          <span class="stat-label" data-i18n="stats.responseLabel">Tiempo de respuesta</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-i18n="stats.countries">3+</span>
+          <span class="stat-label" data-i18n="stats.countriesLabel">Países</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-i18n="stats.ai">IA</span>
+          <span class="stat-label" data-i18n="stats.aiLabel">Cotizador inteligente</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===================== SERVICES ===================== -->
   <section id="services">
     <div class="container">
@@ -70,6 +127,41 @@
 
       <div id="services-grid" class="services-grid fade-in">
         <!-- Rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROCESS ===================== -->
+  <section id="process">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-label">— proceso</p>
+        <h2 class="section-title" data-i18n="process.title">Cómo trabajamos</h2>
+        <p class="section-subtitle" data-i18n="process.subtitle">
+          Un proceso claro y sin sorpresas, desde la idea hasta el lanzamiento
+        </p>
+      </div>
+      <div class="process-grid fade-in">
+        <div class="process-step">
+          <span class="process-number">01</span>
+          <h3 class="process-step-title" data-i18n="process.step1.title">Entendemos tu negocio</h3>
+          <p class="process-step-desc" data-i18n="process.step1.desc">Escuchamos tu idea, analizamos tu operación y definimos el alcance real. Sin tecnicismos innecesarios.</p>
+        </div>
+        <div class="process-step">
+          <span class="process-number">02</span>
+          <h3 class="process-step-title" data-i18n="process.step2.title">Propuesta en 48 horas</h3>
+          <p class="process-step-desc" data-i18n="process.step2.desc">Recibes una propuesta detallada con opciones, costos y tiempos reales. Sin compromisos.</p>
+        </div>
+        <div class="process-step">
+          <span class="process-number">03</span>
+          <h3 class="process-step-title" data-i18n="process.step3.title">Desarrollo iterativo</h3>
+          <p class="process-step-desc" data-i18n="process.step3.desc">Construimos por etapas con entregas parciales. Ves avances reales desde la primera semana.</p>
+        </div>
+        <div class="process-step">
+          <span class="process-number">04</span>
+          <h3 class="process-step-title" data-i18n="process.step4.title">Entrega y soporte</h3>
+          <p class="process-step-desc" data-i18n="process.step4.desc">Lanzamos, te capacitamos y acompañamos. El código es tuyo, sin dependencias ni sorpresas.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -223,6 +315,55 @@
     </div>
   </section>
 
+  <!-- ===================== TESTIMONIALS ===================== -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-label">— clientes</p>
+        <h2 class="section-title" data-i18n="testimonials.title">Lo que dicen nuestros clientes</h2>
+      </div>
+      <div class="testimonials-grid fade-in">
+        <div class="testimonial-card">
+          <p class="testimonial-text" data-i18n="testimonials.t1.text">"Entregaron la plataforma en el tiempo prometido y con todo lo acordado. El equipo entiende el negocio, no solo el código."</p>
+          <div class="testimonial-author">
+            <span class="testimonial-name" data-i18n="testimonials.t1.name">Julián Montoya</span>
+            <span class="testimonial-role" data-i18n="testimonials.t1.role">CEO, Conectando Talento</span>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text" data-i18n="testimonials.t2.text">"El cotizador con IA nos ahorró horas de back-and-forth. Sabíamos exactamente qué íbamos a recibir antes de firmar."</p>
+          <div class="testimonial-author">
+            <span class="testimonial-name" data-i18n="testimonials.t2.name">Andrea Ríos</span>
+            <span class="testimonial-role" data-i18n="testimonials.t2.role">Fundadora, Credifácil Colombia</span>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text" data-i18n="testimonials.t3.text">"Llevamos más de un año trabajando juntos. La comunicación es directa, los tiempos se cumplen y el soporte post-entrega es real."</p>
+          <div class="testimonial-author">
+            <span class="testimonial-name" data-i18n="testimonials.t3.name">Carlos Liberos</span>
+            <span class="testimonial-role" data-i18n="testimonials.t3.role">Director, Libercol</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-label">— faq</p>
+        <h2 class="section-title" data-i18n="faq.title">Preguntas frecuentes</h2>
+      </div>
+      <div class="faq-list fade-in" id="faq-list">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Schema: FAQPage -->
+  <script type="application/ld+json" id="faq-schema"></script>
+
   <!-- ===================== CONTACT ===================== -->
   <section id="contact">
     <div class="container">
@@ -231,18 +372,32 @@
         <p class="contact-subtitle" data-i18n="contact.subtitle">
           Cuéntanos tu idea. En máximo 2 días tienes una propuesta con opciones, costos y tiempos.
         </p>
-        <a
-          href="https://t.me/TELEGRAM_BOT_PLACEHOLDER"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-primary"
-          id="telegram-btn"
-        >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/>
-          </svg>
-          <span data-i18n="contact.telegram">Escribir por Telegram</span>
-        </a>
+        <div class="contact-btns">
+          <a
+            href="https://t.me/TELEGRAM_BOT_PLACEHOLDER"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary"
+            id="telegram-btn"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/>
+            </svg>
+            <span data-i18n="contact.telegram">Escribir por Telegram</span>
+          </a>
+          <a
+            href="https://wa.me/WHATSAPP_NUMBER_PLACEHOLDER"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-secondary"
+            id="whatsapp-btn"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            <span data-i18n="contact.whatsapp">Escribir por WhatsApp</span>
+          </a>
+        </div>
         <p class="contact-note" data-i18n="contact.note">
           Respondemos en menos de 24 horas en días hábiles.
         </p>
@@ -266,6 +421,7 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+  <script src="assets/js/animations.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/quoter.js"></script>
 </body>

@@ -30,9 +30,24 @@ function applyTranslations() {
     if (val !== undefined) el.placeholder = val;
   });
 
+  // Swap <title>, <meta description> and <html lang>
+  if (translations.meta) {
+    document.title = translations.meta.title;
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute('content', translations.meta.description);
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) ogTitle.setAttribute('content', translations.meta.title);
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogDesc) ogDesc.setAttribute('content', translations.meta.description);
+    document.getElementById('html-root')?.setAttribute('lang', translations.meta.lang || 'es');
+  }
+
   renderServices();
   renderPackages();
+  renderFaq();
   window.rerenderQuoterResult?.();
+  // Trigger animation hooks after DOM is updated
+  requestAnimationFrame(() => window.onTranslationsApplied?.());
 }
 
 function getNestedKey(obj, path) {
@@ -143,6 +158,49 @@ function initTheme() {
     const newTheme = body.classList.contains('light-theme') ? 'dark' : 'light';
     setTheme(newTheme);
   });
+}
+
+/* ---- Render FAQ + FAQPage schema ---- */
+function renderFaq() {
+  const container = document.getElementById('faq-list');
+  if (!container) return;
+  const items = translations?.faq?.items || [];
+
+  container.innerHTML = items.map((item, i) => `
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-${i}">
+        <span>${item.q}</span>
+        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="faq-answer" id="faq-answer-${i}" hidden>${item.a}</div>
+    </div>
+  `).join('');
+
+  container.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      const answer = document.getElementById(btn.getAttribute('aria-controls'));
+      if (expanded) answer.setAttribute('hidden', '');
+      else answer.removeAttribute('hidden');
+    });
+  });
+
+  // FAQPage schema
+  const schemaEl = document.getElementById('faq-schema');
+  if (schemaEl && items.length) {
+    schemaEl.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: items.map(item => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: { '@type': 'Answer', text: item.a }
+      }))
+    });
+  }
 }
 
 /* ---- Boot ---- */
